@@ -3,6 +3,7 @@ import express, { type Response, type Request } from "express";
 import { pino } from "pino";
 import cors from "cors";
 import { routes } from "@/routes";
+import rateLimit from "express-rate-limit";
 
 const hosts = process.env.HOSTS_URI as string;
 const allowHosts = hosts?.split(" ");
@@ -16,6 +17,13 @@ app.use(
   cors({
     origin: allowHosts,
     credentials: true,
+  })
+);
+app.use(
+  rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 50, // Limit each IP to 50 requests per windowMs
+    message: "Too many requests from this IP, please try again later.",
   })
 );
 
