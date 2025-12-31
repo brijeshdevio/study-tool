@@ -7,8 +7,8 @@ export class AppController {
   constructor() {}
 
   async handleAsk(req: Request, res: Response): Promise<Response> {
-    const { prompt } = req.body;
-    const response = await appService.ask(prompt);
+    const { question } = req.body;
+    const response = await appService.ask(question);
     return res.json(response);
   }
 }

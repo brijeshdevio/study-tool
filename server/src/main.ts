@@ -2,8 +2,9 @@ import "dotenv/config";
 import express, { type Response, type Request } from "express";
 import { pino } from "pino";
 import cors from "cors";
-import { routes } from "@/routes";
 import rateLimit from "express-rate-limit";
+import { routes } from "@/routes";
+import { globalError } from "@/middlewares";
 
 const hosts = process.env.HOSTS_URI as string;
 const allowHosts = hosts?.split(" ");
@@ -32,6 +33,8 @@ app.get("/", (_: Request, res: Response) => {
 });
 
 app.use("/api", routes);
+
+app.use(globalError);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
