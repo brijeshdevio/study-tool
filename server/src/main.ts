@@ -32,6 +32,10 @@ app.get("/", (_: Request, res: Response) => {
   res.send("Welcome to Study Tool AI");
 });
 
+app.get("/health", (_: Request, res: Response) => {
+  res.send("OK");
+});
+
 app.use("/api", routes);
 
 app.use(globalError);
