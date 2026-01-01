@@ -1,0 +1,13 @@
+### GET - /
+GET http://localhost:3000/
+
+### GET - /health
+GET http://localhost:3000/health
+
+### POST - /api/ask
+POST http://localhost:3000/api/ask
+Content-Type: application/json
+
+{
+  "question": "What is a bubble sort?"
+}
