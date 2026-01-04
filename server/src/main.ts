@@ -4,6 +4,7 @@ import type { Request, Response } from "express";
 import { pino } from "pino";
 
 const app = express();
+const logger = pino();
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to the StudyTool API");
@@ -11,5 +12,5 @@ app.get("/", (req: Request, res: Response) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  pino().info(`Server running on port ${PORT}`);
+  logger.info(`Server running on port ${PORT}`);
 });
