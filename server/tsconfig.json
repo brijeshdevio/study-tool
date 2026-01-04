@@ -7,7 +7,7 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "module": "commonjs",
-    "target": "es2023",
+    "target": "esnext",
     "types": ["node"],
     "lib": ["ES6"],
     "strict": true,
