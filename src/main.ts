@@ -42,12 +42,12 @@ app.use("/api", routes);
 app.use(globalError);
 
 // for development
-if (process.env.NODE_ENV === "development") {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    logger.info(`Server running on port ${PORT}`);
-  });
-}
-
-// for vercel
-export default app;
+// if (process.env.NODE_ENV === "development") {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  logger.info(`Server running on port ${PORT}`);
+});
+// }
+//
+// // for vercel
+// export default app;
