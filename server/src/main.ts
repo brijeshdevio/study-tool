@@ -1,3 +1,4 @@
+import "module-alias/register";
 import "dotenv/config";
 import express, { type Response, type Request } from "express";
 import { pino } from "pino";
@@ -40,7 +41,13 @@ app.use("/api", routes);
 
 app.use(globalError);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`);
-});
+// for development
+if (process.env.NODE_ENV === "development") {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    logger.info(`Server running on port ${PORT}`);
+  });
+}
+
+// for vercel
+export default app;

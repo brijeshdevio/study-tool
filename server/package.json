@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/main.ts",
     "build": "tsc",
-    "start": "node dist/main.js",
+    "start": "node -r tsconfig-paths/register dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,6 +21,7 @@
     "express-rate-limit": "^8.2.1",
     "groq-sdk": "^0.37.0",
     "helmet": "^8.1.0",
+    "module-alias": "^2.2.3",
     "morgan": "^1.10.1",
     "pino": "^10.1.0",
     "tsconfig-paths": "^4.2.0",
@@ -33,5 +34,8 @@
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }
