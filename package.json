@@ -1,41 +1,35 @@
 {
-  "name": "server",
+  "name": "api-proxy-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/main.ts",
+    "dev": "nodemon ./src/index.ts",
     "build": "tsc",
-    "start": "node -r tsconfig-paths/register dist/main.js",
+    "start": "node ./api/index.js",
+    "vercel-build": "echo 'Building for Vercel deployment'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Brijesh <brijeshio@duck.com>",
   "license": "ISC",
-  "packageManager": "pnpm@10.18.3",
+  "description": "A simple API proxy backend server.",
   "dependencies": {
+    "@types/express-serve-static-core": "^5.1.0",
+    "axios": "^1.11.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "express-rate-limit": "^8.2.1",
-    "groq-sdk": "^0.37.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
     "helmet": "^8.1.0",
-    "module-alias": "^2.2.3",
-    "morgan": "^1.10.1",
-    "pino": "^10.1.0",
-    "tsconfig-paths": "^4.2.0",
-    "zod": "^4.3.2"
+    "morgan": "^1.10.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/node": "^25.0.3",
-    "nodemon": "^3.1.11",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.3",
+    "@types/helmet": "^0.0.48",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.3.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  },
-  "_moduleAliases": {
-    "@": "dist"
+    "typescript": "^5.9.2"
   }
 }
